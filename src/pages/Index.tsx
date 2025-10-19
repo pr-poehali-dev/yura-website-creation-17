@@ -95,7 +95,7 @@ const Index = () => {
     <div className="min-h-screen">
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b">
         <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-3xl md:text-4xl font-bold text-primary">🎈🎈🎈 Vanilla</div>
+          <div className="text-3xl md:text-4xl font-bold text-primary">🎈🎈🎈 Vanilla loft</div>
           
           <div className="hidden md:flex gap-6">
             <a href="#home" className="hover:text-primary transition-colors">Главная</a>
@@ -356,7 +356,7 @@ const Index = () => {
 
       <footer className="py-8 px-4 bg-primary/5 text-center">
         <p className="text-muted-foreground">
-          © 2025 Vanilla. Создаём счастливые моменты! 🎈
+          © 2025 Vanilla loft. Создаём счастливые моменты! 🎈
         </p>
       </footer>
     </div>
