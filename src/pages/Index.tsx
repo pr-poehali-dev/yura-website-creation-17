@@ -8,11 +8,16 @@ import { useToast } from '@/hooks/use-toast';
 
 const Index = () => {
   const { toast } = useToast();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     message: ''
   });
+
+  const handleNavClick = () => {
+    setMobileMenuOpen(false);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -91,6 +96,7 @@ const Index = () => {
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b">
         <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="text-2xl font-bold text-primary">🎈 Детский Праздник</div>
+          
           <div className="hidden md:flex gap-6">
             <a href="#home" className="hover:text-primary transition-colors">Главная</a>
             <a href="#about" className="hover:text-primary transition-colors">Обо мне</a>
@@ -99,7 +105,29 @@ const Index = () => {
             <a href="#testimonials" className="hover:text-primary transition-colors">Отзывы</a>
             <a href="#contact" className="hover:text-primary transition-colors">Контакты</a>
           </div>
+
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <Icon name={mobileMenuOpen ? "X" : "Menu"} size={24} />
+          </Button>
         </nav>
+
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-background/95 backdrop-blur-md border-t animate-fade-in">
+            <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
+              <a href="#home" onClick={handleNavClick} className="text-lg hover:text-primary transition-colors py-2">Главная</a>
+              <a href="#about" onClick={handleNavClick} className="text-lg hover:text-primary transition-colors py-2">Обо мне</a>
+              <a href="#services" onClick={handleNavClick} className="text-lg hover:text-primary transition-colors py-2">Услуги</a>
+              <a href="#portfolio" onClick={handleNavClick} className="text-lg hover:text-primary transition-colors py-2">Портфолио</a>
+              <a href="#testimonials" onClick={handleNavClick} className="text-lg hover:text-primary transition-colors py-2">Отзывы</a>
+              <a href="#contact" onClick={handleNavClick} className="text-lg hover:text-primary transition-colors py-2">Контакты</a>
+            </div>
+          </div>
+        )}
       </header>
 
       <section id="home" className="pt-32 pb-20 px-4 relative overflow-hidden">
